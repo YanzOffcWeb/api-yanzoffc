@@ -17,7 +17,7 @@ app.use(cors());
 // Import AI
 require('./ai/Blackbox')(app);
 require('./ai/LuminAI')(app);
-require('/ai/zhiziai')(app);
+require('./ai/zhiziai')(app);
 require('./ai/Thinkai')(app);
 
 // Import Berita
