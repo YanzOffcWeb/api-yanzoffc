@@ -1,58 +1,51 @@
 const axios = require('axios');
-const cheerio = require('cheerio');
 
 module.exports = function(app) {
-  // Fungsi untuk mengambil data aplikasi dari Play Store
-  async function PlayStore(search) {
-    try {
-      const { data } = await axios.get(https://play.google.com/store/search?q=${encodeURIComponent(search)}&c=apps);
-      
-      const hasil = [];
-      const $ = cheerio.load(data);
-      
-      $('.ULeU3b > .VfPpkd-WsjYwc.VfPpkd-WsjYwc-OWXEXe-INsAgc.KC1dQ.Usd1Ac.AaN0Dd.Y8RQXd > .VfPpkd-aGsRMb > .VfPpkd-EScbFb-JIbuQc.TAQqTe > a').each((i, u) => {
-        const linkk = $(u).attr('href');
-        const nama = $(u).find('.j2FCNc > .cXFu1 > .ubGTjb > .DdYX5').text();
-        const developer = $(u).find('.j2FCNc > .cXFu1 > .ubGTjb > .wMUdtb').text();
-        const img = $(u).find('.j2FCNc > img').attr('src');
-        const rate = $(u).find('.j2FCNc > .cXFu1 > .ubGTjb > div').attr('aria-label');
-        const rate2 = $(u).find('.j2FCNc > .cXFu1 > .ubGTjb > div > span.w2kbF').text();
-        const link = https://play.google.com${linkk};
 
-        hasil.push({
-          link: link,
-          nama: nama || 'No name',
-          developer: developer || 'No Developer',
-          img: img || 'https://i.ibb.co/G7CrCwN/404.png',
-          rate: rate || 'No Rate',
-          rate2: rate2 || 'No Rate',
-          link_dev: https://play.google.com/store/apps/developer?id=${developer.split(" ").join('+')}
-        });
-      });
 
-      return hasil;
-    } catch (error) {
-      console.error('Error fetching data from Play Store:', error);
-      throw error; // Melempar kesalahan untuk ditangani di endpoint
-    }
-  }
+    async function bossMode(prompt) {
+        const url = new URL("https://yw85opafq6.execute-api.us-east-1.amazonaws.com/default/boss_mode_15aug");
+        url.search = new URLSearchParams({
+            text: prompt,
+            country: "Europe",
+            user_id: "Av0SkyG00D"
+        }).toString();
 
-  // Endpoint untuk mencari aplikasi di Play Store
-  app.get('/playstore', async (req, res) => {
-    const { search } = req.query; // Mengambil parameter pencarian dari query
-    if (!search) {
-      return res.status(400).json({ error: 'Parameter "search" tidak ditemukan, harap masukkan query pencarian.' });
+        try {
+            const response = await axios.get(url.toString(), {
+                headers: {
+                    "User-Agent": "Mozilla/5.0 (Linux; Android 11; Infinix) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.0.0 Mobile Safari/537.36",
+                    Referer: "https://www.ai4chat.co/pages/riddle-generator"
+                }
+            });
+
+            if (response.status !== 200) {
+                throw new Error(Error: ${response.status});
+            }
+
+            return response.data;
+        } catch (error) {
+            console.error("Fetch error:", error.message);
+            throw error;
+        }
     }
 
-    try {
-      const result = await PlayStore(search);
-      res.status(200).json({
-        status: 200,
-        creator: "Zhizi",
-        data: result
-      });
-    } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
-  });
+    // Endpoint untuk scraper Boss Mode
+    app.get('/ai4chat', async (req, res) => {
+        try {
+            const { text } = req.query;
+            if (!text) {
+                return res.status(400).json({ error: 'Parameter "text" tidak ditemukan.' });
+            }
+
+            const result = await bossMode(text);
+            res.status(200).json({
+                status: 200,
+                creator: "Zhizi",
+                data: result
+            });
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    });
 };
