@@ -15,6 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 // Import AI
+require('./ai/ai4chat')(app);
 require('./ai/Blackbox')(app);
 require('./ai/LuminAI')(app);
 require('./ai/zhiziai')(app);
@@ -23,14 +24,21 @@ require('./ai/Thinkai')(app);
 // Import Berita
 require('./berita/liputan6')(app);
 
+// Import Downloader 
+require('./downloader/tiktok')(app);
+
 // Import Search
 require('./search/goodread')(app);
 require('./search/ypia')(app);
+require('./search/playstore')(app);
 require('./search/rumaysho')(app);
 require('./search/surah')(app);
 require('./search/jadwalsholat')(app);
 
-// Full Kode Di Github Saya : https://github.com/Lenwyy/
+// Import Tools
+require('./tools/morse')(app);
+
+// Full Kode Di Github Saya : https://github.com/YanzOffc/
 
 // Endpoint untuk halaman HTML utama
 app.get('/', (req, res) => {
