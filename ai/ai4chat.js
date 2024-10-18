@@ -35,7 +35,7 @@ module.exports = function(app) {
         try {
             const { text } = req.query;
             if (!text) {
-                return res.status(200).json({ 'error: Parameter "text" tidak ditemukan.' });
+                return res.status(400).json({ error: 'Parameter "text" tidak ditemukan.' });
             }
 
             const result = await bossMode(text);
