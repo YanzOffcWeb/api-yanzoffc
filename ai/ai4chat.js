@@ -1,5 +1,3 @@
-Scraper And End Point Ai4Chat
-
 const axios = require('axios');
 
 module.exports = function(app) {
