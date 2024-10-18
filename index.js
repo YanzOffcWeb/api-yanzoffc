@@ -29,7 +29,6 @@ require('./downloader/tiktok')(app);
 // Import Search
 require('./search/goodread')(app);
 require('./search/ypia')(app);
-require('./search/playstore')(app);
 require('./search/rumaysho')(app);
 require('./search/surah')(app);
 require('./search/jadwalsholat')(app);
