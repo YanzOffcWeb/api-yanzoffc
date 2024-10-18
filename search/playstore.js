@@ -17,7 +17,7 @@ module.exports = function(app) {
         const img = $(u).find('.j2FCNc > img').attr('src');
         const rate = $(u).find('.j2FCNc > .cXFu1 > .ubGTjb > div').attr('aria-label');
         const rate2 = $(u).find('.j2FCNc > .cXFu1 > .ubGTjb > div > span.w2kbF').text();
-        const link = https://play.google.com${linkk};
+        const link = `https://play.google.com${linkk}`;
 
         hasil.push({
           link: link,
