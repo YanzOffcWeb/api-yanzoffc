@@ -201,9 +201,11 @@ footer {
       color: #fff; /* Warna teks putih */
       padding: 9px; /* Ukuran padding lebih kecil */
       text-align: center;
-      margin: 0;
       margin-top: auto; /* Membuat footer berada di bawah */
       font-size: 0.8em; /* Ukuran teks lebih kecil */
+      width: 100vw;
+      left: 0;
+      right: 0;
   }
 
   @keyframes gradient {
