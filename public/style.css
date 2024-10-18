@@ -917,6 +917,7 @@ pre {
     background-color: #282c3f;
     color: white;
     padding: 10px;
+    border: 2px solid blue
     border-radius: 10px;
     margin-bottom: 10px;
     display: flex;
@@ -925,7 +926,6 @@ pre {
   }
   .folder-items {
     overflow: hidden;
-    border-radius: 4px solid blue;
     max-height: 0;
     transition: max-height 0.3s ease, opacity 0.3s ease;
     opacity: 0;
