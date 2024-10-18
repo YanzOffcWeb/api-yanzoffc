@@ -35,7 +35,7 @@ module.exports = function(app) {
         try {
             const { text } = req.query;
             if (!text) {
-                return res.status(400).json({ error: 'Silahkan Masukan Text Untuk Diubah Ke Sandi Morse' });
+                return res.status(400).json({ error: 'Parameter "text" tidak ditemukan : Silahkan Masukan Text Untuk Diubah Ke Sandi Morse' });
             }
 
             // Mengonversi teks ke kode Morse
