@@ -26,7 +26,7 @@ module.exports = function(app) {
           img: img || 'https://i.ibb.co/G7CrCwN/404.png',
           rate: rate || 'No Rate',
           rate2: rate2 || 'No Rate',
-          link_dev: `https://play.google.com/store/apps/developer?id=${developer.split(" ").join('+')`}
+          link_dev: 'https://play.google.com/store/apps/developer?id=${developer.split(" ").join('+')'}
         });
       });
 
