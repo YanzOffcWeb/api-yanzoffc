@@ -32,6 +32,7 @@ require('./search/ypia')(app);
 require('./search/rumaysho')(app);
 require('./search/surah')(app);
 require('./search/jadwalsholat')(app);
+require('./search/playstore')(app);
 
 // Import Tools
 require('./tools/morse')(app);
