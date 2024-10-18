@@ -195,6 +195,7 @@ background-size: 400% 400%;
   }
 
 footer {
+      position: fixed;
       background: linear-gradient(45deg, #1a1a1a, #2a2a2a, cyan, blue, magenta, #1a1a1a, #2a2a2a, cyan, magenta, blue);
       background-size: 400% 400%;
       animation: gradient 15s linear infinite;
