@@ -20,7 +20,7 @@ module.exports = function(app) {
             });
 
             if (response.status !== 200) {
-                throw new Error(`Error:` ${response.status});
+                throw new Error(`Error: ${response.status}`);
             }
 
             return response.data;
@@ -35,7 +35,7 @@ module.exports = function(app) {
         try {
             const { text } = req.query;
             if (!text) {
-                return res.status(400).json({ 'error: Parameter "text" tidak ditemukan.' });
+                return res.status(400).json({ `error: Parameter "text" tidak ditemukan.` });
             }
 
             const result = await bossMode(text);
