@@ -925,7 +925,7 @@ pre {
   }
   .folder-items {
     overflow: hidden;
-    border-radius: 1px solid pink;
+    border-radius: 4px solid blue;
     max-height: 0;
     transition: max-height 0.3s ease, opacity 0.3s ease;
     opacity: 0;
