@@ -7,7 +7,7 @@ module.exports = function(app) {
   // Fungsi untuk mengambil data aplikasi dari Play Store
   async function PlayStore(search) {
     try {
-      const { data } = await axios.get(https://play.google.com/store/search?q=${encodeURIComponent(search)}&c=apps);
+      const { data } = await axios.get(`https://play.google.com/store/search?q=${encodeURIComponent(search)}&c=apps`);
       
       const hasil = [];
       const $ = cheerio.load(data);
