@@ -15,7 +15,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 // Import AI
-require('./ai/ai4chat')(app);
 require('./ai/Blackbox')(app);
 require('./ai/LuminAI')(app);
 require('./ai/zhiziai')(app);
