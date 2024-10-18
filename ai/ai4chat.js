@@ -20,7 +20,7 @@ module.exports = function(app) {
             });
 
             if (response.status !== 200) {
-                throw new error('Error: ${response.status})';
+                throw new error(`Error: ${response.status}`);
             }
 
             return response.data;
